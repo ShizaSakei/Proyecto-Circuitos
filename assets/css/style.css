@@ -1,0 +1,125 @@
+/* FONTS
+-----------------------------------------------------------------------------------------*/
+@font-face{
+	font-family: "Ubuntu"; 
+	font-style: normal;
+	font-weight: 500;
+	src: url(fonts/Ubuntu-Regular.ttf);
+}
+@font-face{
+	font-family: "Ubuntu"; 
+	font-style: normal;
+	font-weight: 800;
+	src: url(fonts/Ubuntu-Bold.ttf);
+}
+@font-face{
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 650; 
+	src: url(fonts/Ubuntu-Medium.ttf);
+
+}
+@font-face{
+	font-family: "Ubuntu"; 
+	font-style: normal;
+	font-weight: 200;
+	src: url(fonts/Ubuntu-Light.ttf);
+}
+/* END FONTS
+-----------------------------------------------------------------------------------------*/
+body{	
+	font-family: "Ubuntu";
+	font-weight: 500;
+}
+
+h4{
+	font-size: 20px;
+}
+
+.common-container{
+	padding: 15px 15px;
+	margin:15px;
+}
+h2.title{
+	font-weight: 800;
+	font-size: 35px;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+}
+.data-container{
+	background-color: #f1f7f9;
+	padding: 10px 0;
+	-webkit-box-shadow: 0px 4px 6px 0px rgba(99,109,118,0.4);
+	-moz-box-shadow: 0px 4px 6px 0px rgba(99,109,118,0.4);
+	box-shadow: 0px 4px 6px 0px rgba(99,109,118,0.4);
+}
+.data-container span.data{
+	font-size: 90px;
+}
+.data-container span.data span.unit{
+	font-size: 30px;
+}
+.bg-a{
+	background-color: #ffffff;
+	color: #303644;
+}
+.btn{
+	font-size: 20px;
+	font-weight: 650;
+	width: 250px;
+	padding: 12px 5px;
+	border-radius: 0;
+	margin: 10px 0;
+}
+a:active, a:focus, a:visited, 
+button:active, button:focus, button:visited{
+	outline: none;
+	border:none;
+	box-shadow: none !important;
+}
+
+.btn-auto{
+	width: 820px;
+}
+
+.btn-on{
+	background: #47cead;
+	color: #303644;
+}
+.btn-on:hover{
+	color:#303644;
+}
+.bg-auto{
+	background: #39afd7;
+	color: #e4e7ec;
+}
+.btnlight{
+	background: #e4e7ec;
+	color: #303644;
+}
+.btnlight:hover{
+	color: #303644;
+}
+.txt-danger{
+	color: #e95565;
+}
+.txt-stable{
+	color: #47cead;
+}
+.btn-ca{
+	padding: 20px 0;
+	-webkit-box-shadow: 0px 4px 6px 0px rgba(99,109,118,0.4);
+	-moz-box-shadow: 0px 4px 6px 0px rgba(99,109,118,0.4);
+	box-shadow: 0px 4px 6px 0px rgba(99,109,118,0.4);
+
+}
+.btn-ca span.icon{
+	font-size: 80px;
+	color:#47cead;
+}
+.btn-ca.active span.icon{
+	color:#e95565;
+}
+.btn-ca.btng{
+ 	width: 535px;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "ArduinoController",
+  "version": "0.0.1",
+  "description": "Aplicación para controlar los diferentes dispositivos electrónicos",
+  "dependencies": {
+    "express": "^4.15.2",
+    "johnny-five": "^0.15.0",
+    "socket.io": "^2.1.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
