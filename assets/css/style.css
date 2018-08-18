@@ -107,6 +107,8 @@ button:active, button:focus, button:visited{
 	color: #47cead;
 }
 .btn-ca{
+	background: #e4e7ec;
+	color: #303644;
 	padding: 20px 0;
 	-webkit-box-shadow: 0px 4px 6px 0px rgba(99,109,118,0.4);
 	-moz-box-shadow: 0px 4px 6px 0px rgba(99,109,118,0.4);
