@@ -5,7 +5,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var five = require("johnny-five");
 //var board = new five.Boards([{id:"A", port:"COM4"},{id:"B", port:"COM5"}]);
-var board = new five.Board();
+var board = new five.Board({port: "COM5"});
 app.use(express.static('assets'));
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
@@ -47,19 +47,36 @@ board.on('ready', function(){
 				pin.low();
 			}
 		});
-		socket.on('led', function(data){
-			if(data.led){
-				ld.high();
-			}else{
-				ld.low();
-			}
-		});
 
 	});
 });*/
 
 board.on('ready', function(){
+	var garage = new five.Servos([
+		{
+			pin: 7,
+			startAt: 0
+		},
+		{
+			pin: 8,
+			startAt: 180
+		}
+	]);
 	
+	//Funciones para la comunicación
+	io.on('connection', function(socket){
+		console.log('a user connected');
+  
+		socket.on('cadoors', function(data){
+			//Puerta   
+			if(data.doorA){
+				garage.to(90,1000);
+			}else{
+				garage.home();
+			}
+		});
+  
+	});
 });
 
 //ejecución del Servidor
