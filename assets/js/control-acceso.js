@@ -3,9 +3,10 @@ angular.
 	module('appArduino').
 	component('viewca', {
 		templateUrl:'views/control-acceso.html',
-		controller: ['$scope','$http', function ($scope, $http){
+		controller: ['$scope','$http','$timeout', function ($scope, $http, $timeout){
 		//Declaración de Variables
-			//Booleanas - Control
+            //Booleanas - Control
+            $scope.aux = false;
             $scope.doorA = false;
             $scope.doorB = false;
             $scope.garageDoorA = false;
@@ -14,7 +15,7 @@ angular.
             $scope.lock = false;
             $scope.alarm = false;
             //Inicialización de variables de texto
-            $scope.autotxt = ($scope.auto)?"Automática":"Manual";
+            $scope.autotxt = ($scope.auto)?"Automático":"Manual";
             $scope.security = ($scope.lock)?"Activada":"Apagada";
             $scope.activate = ($scope.alarm)?"¡Alerta!":"Apagado";		
 		//Funciones
@@ -25,7 +26,8 @@ angular.
                     doorB:$scope.doorB,
                     garageDoorA:$scope.garageDoorA,
                     garageDoorB:$scope.garageDoorB,
-                    alarm:$scope.alarm
+                    alarm:$scope.alarm,
+                    aux:$scope.aux
                 });
             }
 
@@ -70,5 +72,24 @@ angular.
                 $scope.activate = ($scope.alarm)?"¡Alerta!":"Apagado";  
                 $scope.sendData();
             }
+            sock.on('cadresp', function(data){
+				$scope.$apply(function(){
+                    $scope.aux = data.aux;
+                    $scope.openAll();
+                    $scope.sendData();
+                    $timeout(function(){
+                        $scope.aux = false;
+                        $scope.closeAll();
+                        $scope.sendData();
+                    },5000);
+				});
+            });	
+            sock.on('alarm', function(data){
+				$scope.$apply(function(){
+                    if($scope.lock && !$scope.alarm){
+                        $scope.alertOnOff();
+                    }
+				});
+			});
 		}]
 	});

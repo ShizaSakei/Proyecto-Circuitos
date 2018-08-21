@@ -34,10 +34,17 @@
 				<a href="#" class="btn" ng-click="blowerOnOff('A')" ng-class="{'disabled':auto===true, 'btnlight':blowerA===false, 'btn-on':blowerA===true}">Ventilador Sala <br> {{stateA}}</a>
 			</div>
 			<div class="col-3">
-				<a href="#" class="btn" ng-click="blowerOnOff('B')" ng-class="{'disabled':auto===true, 'btnlight':blowerB===false, 'btn-on':blowerB===true}">Ventilador Dormitorio <br>{{stateB}}</a>
+				<a href="#" class="btn " ng-click="blowerOnOff('B')" ng-class="{'disabled':auto===true, 'btnlight':blowerB===false, 'btn-on':blowerB===true}">Ventilador Cocina <br>{{stateB}}</a>
+			</div>
+			<div class="w-100"></div>
+			<div class="col-3">
+				<a href="#" class="btn" ng-click="windowsOnOff('A')" ng-class="{'disabled':auto===true, 'btnlight':windowA===false, 'btn-on':windowA===true}">Ventana Habitación 1 <br> {{stwA}}</a>
 			</div>
 			<div class="col-3">
-				<a href="#" class="btn " ng-click="blowerOnOff('C')" ng-class="{'disabled':auto===true, 'btnlight':blowerC===false, 'btn-on':blowerC===true}">Ventilador Cocina <br>{{stateC}}</a>
+				<a href="#" class="btn " ng-click="windowsOnOff('B')" ng-class="{'disabled':auto===true, 'btnlight':windowB===false, 'btn-on':windowB===true}">Ventana Habitación 2 <br>{{stwB}}</a>
+			</div>
+			<div class="col-3">
+				<a href="#" class="btn " ng-click="windowsOnOff('C')" ng-class="{'disabled':auto===true, 'btnlight':windowC===false, 'btn-on':windowC===true}">VentanaSala <br>{{stwC}}</a>
 			</div>
 		</div>
 		<div class="row text-center pt-4 justify-content-center">

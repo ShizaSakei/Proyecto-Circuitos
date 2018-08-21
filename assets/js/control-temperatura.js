@@ -15,13 +15,21 @@ angular.
 			$scope.autoB = true;
 			$scope.blowerA = false;
 			$scope.blowerB = false;
-			$scope.blowerC = false;
+			$scope.windowA = false;
+			$scope.windowB = false;
+			$scope.windowC = false;
 			$scope.room = false;
 			
 		//Funciones
 			//Envío de Acciones al Arduino
 			$scope.sendResponse = function(){
-				socket.emit('resp',{blowerA: $scope.blowerA, blowerB: $scope.blowerB, blowerC: $scope.blowerC});
+				socket.emit('resp',{
+					blowerA: $scope.blowerA, 
+					blowerB: $scope.blowerB,
+					windowA: $scope.windowA,
+					windowB: $scope.windowB,
+					windowC: $scope.windowC
+				});
 			}
 			$scope.sendResponseB = function(){
 				socket.emit('resptend',{room:$scope.room});
@@ -30,7 +38,9 @@ angular.
 			$scope.changeText = function(){
 				$scope.stateA = ($scope.blowerA)?"Encendido":"Apagado";
 				$scope.stateB = ($scope.blowerB)?"Encendido":"Apagado";
-				$scope.stateC = ($scope.blowerC)?"Encendido":"Apagado";
+				$scope.stwA = ($scope.windowA)?"Abierto":"Cerrado";
+				$scope.stwB = ($scope.windowB)?"Abierto":"Cerrado";
+				$scope.stwC = ($scope.windowC)?"Abierto":"Cerrado";
 				$scope.textAuto = ($scope.auto)?"Automático":"Manual";
 				$scope.textAutoB = ($scope.autoB)?"Automático":"Manual";
 				$scope.roomState = ($scope.room)?"Abierto":"Cerrado";
@@ -54,13 +64,55 @@ angular.
 					case 'B':
 						$scope.blowerB = !$scope.blowerB;
 						break;
-					case 'C':
-						$scope.blowerC = !$scope.blowerC;
-						break;
 				}				
 				$scope.changeText();
 				$scope.sendResponse();
 			};
+			$scope.windowsOnOff = function(w){
+				switch(w){
+					case 'A':
+						$scope.windowA = !$scope.windowA;
+						break;
+					case 'B':
+						$scope.windowB = !$scope.windowB;
+						break;
+					case 'C':
+						$scope.windowC = !$scope.windowC;
+						break;
+				}
+				$scope.changeText();
+				$scope.sendResponse();
+			}
+
+			$scope.blowerOnAll = function(){
+				$scope.blowerA = true;
+				$scope.blowerB = true;
+				$scope.changeText();
+				$scope.sendResponse();
+			}
+			$scope.blowerOffAll = function(){
+				$scope.blowerA = false;
+				$scope.blowerB = false;
+				$scope.changeText();
+				$scope.sendResponse();
+			}
+
+			$scope.windowsOpenAll = function(){
+				$scope.windowA = true;
+				$scope.windowB = true;
+				$scope.windowC = true;
+				$scope.changeText();
+				$scope.sendResponse();
+			}
+
+			$scope.windowsCloseAll = function(){
+				$scope.windowA = false;
+				$scope.windowB = false;
+				$scope.windowC = false;
+				$scope.changeText();
+				$scope.sendResponse();
+			}
+
 			$scope.roomOnOff = function(){
 				$scope.room = !$scope.room;
 				$scope.changeText();
@@ -71,12 +123,14 @@ angular.
 				$scope.$apply(function(){
 					$scope.temperatura = parseInt(data)+"";
 					if((parseInt(data)>28)&&($scope.auto)){
-						//------------
+						$scope.blowerOnAll();
+						$scope.windowsOpenAll();
 						$scope.changeText();
 						$scope.sendResponse();
 					}
 					if((parseInt(data)<28)&&($scope.auto)){
-						//------------
+						$scope.blowerOffAll();
+						$scope.windowsCloseAll();
 						$scope.changeText();
 						$scope.sendResponse();
 					}
