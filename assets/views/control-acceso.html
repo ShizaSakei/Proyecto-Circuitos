@@ -18,10 +18,10 @@
                 <br>Puerta Entrada 2</button>
         </div>
         <div class="col-12">
-            <button class="btn btn-ca btng" ng-click="openAll()">Abrir Garage</button>
+            <button class="btn btn-ca btng" ng-click="openAll()" ng-class="{'disabled':auto===true}">Abrir Garage</button>
         </div>
         <div class="col-12">
-            <button class="btn btn-ca btng" ng-click="closeAll()">Cerrar Garage</button>
+            <button class="btn btn-ca btng" ng-click="closeAll()" ng-class="{'disabled':auto===true}">Cerrar Garage</button>
         </div>
         <div class="col-3">
             <a href="#" class="btn btn-ca" ng-click="openCloseC()" ng-class="{'active':garageDoorA===true,'disabled':auto===true}">

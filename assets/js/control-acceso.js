@@ -74,14 +74,16 @@ angular.
             }
             sock.on('cadresp', function(data){
 				$scope.$apply(function(){
-                    $scope.aux = data.aux;
-                    $scope.openAll();
-                    $scope.sendData();
-                    $timeout(function(){
-                        $scope.aux = false;
-                        $scope.closeAll();
+                    if(lock){
+                        $scope.aux = data.aux;
+                        $scope.openAll();
                         $scope.sendData();
-                    },5000);
+                        $timeout(function(){
+                            $scope.aux = false;
+                            $scope.closeAll();
+                            $scope.sendData();
+                        },5000);
+                    }                    
 				});
             });	
             sock.on('alarm', function(data){
