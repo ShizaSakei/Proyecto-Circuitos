@@ -3,51 +3,65 @@
         <div class="col-12">
             <h2 class="title">Control de Acceso</h2>
         </div>
-        <div class="col-3">
+        <div class="col-8 col-sm-6 col-md-5 col-xl-3">
             <button class="btn btn-ca" ng-click="openCloseA()" ng-class="{'active':doorA===true}">
                 <span class="icon">
                     <i class="fas" ng-class="{'fa-door-closed':doorA===false,'fa-door-open':doorA===true }"></i>
                 </span>
                 <br>Puerta Entrada 1</button>
         </div>
-        <div class="col-3">
+        <div class="col-8 col-sm-6  col-md-5 col-xl-3">
             <button class="btn btn-ca" ng-click="openCloseB()" ng-class="{'active':doorB===true}">
                 <span class="icon">
                     <i class="fas" ng-class="{'fa-door-closed':doorB===false,'fa-door-open':doorB===true }"></i>
                 </span>
                 <br>Puerta Entrada 2</button>
         </div>
-        <div class="col-12">
+
+        <div class="w-100"></div>
+
+        <div class="col-8 col-sm-12 col-md-10 col-xl-6">
             <button class="btn btn-ca btng" ng-click="openAll()" ng-class="{'disabled':auto===true}">Abrir Garage</button>
         </div>
-        <div class="col-12">
+        <div class="w-100"></div>
+
+        <div class="col-8 col-sm-12 col-md-10 col-xl-6">
             <button class="btn btn-ca btng" ng-click="closeAll()" ng-class="{'disabled':auto===true}">Cerrar Garage</button>
         </div>
-        <div class="col-3">
+
+        <div class="w-100"></div>
+
+        <div class="col-8 col-sm-6  col-md-5 col-xl-3">
             <a href="#" class="btn btn-ca" ng-click="openCloseC()" ng-class="{'active':garageDoorA===true,'disabled':auto===true}">
                 <span class="icon">
                     <i class="fas" ng-class="{'fa-door-closed':garageDoorA===false,'fa-door-open':garageDoorA===true }"></i>
                 </span>
                 <br>Puerta Garage Izquierda</a>
         </div>
-        <div class="col-3">
+        <div class="col-8 col-sm-6  col-md-5 col-xl-3">
             <a href="#" class="btn btn-ca" ng-click="openCloseD()" ng-class="{'active':garageDoorB===true,'disabled':auto===true}">
                 <span class="icon">
                     <i class="fas" ng-class="{'fa-door-closed':garageDoorB===false,'fa-door-open':garageDoorB===true }"></i>
                 </span>
                 <br>Puerta Garage Derecha</a>
         </div>
-        <div class="col-12">
+
+        <div class="w-100"></div>
+
+        <div class="col-8 col-sm-12 col-md-10 col-xl-6">
             <button class="btn btn-ca btng" ng-click="autoOnOff()">Control Garage: {{autotxt}}</button>
         </div>
-        <div class="col-3">
+
+        <div class="w-100"></div>
+
+        <div class="col-8 col-sm-6  col-md-5 col-xl-3">
             <a href="#" class="btn btn-ca" ng-click="alarmOnOff()" ng-class="{'active':lock===true}">
                 <span class="icon">
                     <i class="fas" ng-class="{'fa-lock-open':lock===false,'fa-lock':lock===true }"></i>
                 </span>
                 <br>Seguridad: {{security}}</a>
         </div>
-        <div class="col-3">
+        <div class="col-8 col-sm-6  col-md-5 col-xl-3">
             <a href="#" class="btn btn-ca" ng-click="alertOnOff()" ng-class="{'active':alarm===true,'disabled':alarm===false}">
                 <span class="icon">
                     <i class="fas" ng-class="{'fa-bell-slash':alarm===false,'fa-assistive-listening-systems':alarm===true }"></i>

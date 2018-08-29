@@ -4,46 +4,51 @@
 			<div class="col-12">
 				<h2 class="title">Control Ambiental</h2>
 			</div>		
-			<div class="col-3">
+			<div class="col-12 col-sm-5 col-md-4 col-xl-3">
 				<div class="data-container">
 					<span class="data txt-stable" id="data-temp">{{temperatura}}<span class="unit">°C</span></span>				
 					<h4 class="txt-a">Temperatura</h4>
 				</div>
 			</div>
-			<div class="col-3">
+			<div class="col-12 col-sm-auto">
 				<div class="data-container">
 					<span class="data txt-danger">{{humo}}<span class="unit">ppm</span></span>				
 					<h4 class="txt-a">Calidad del Aire</h4>
 				</div>
 			</div>
-			<div class="col-3">
+			<!--<div class="col-4 col-lg-4 col-xl-3">
 				<div class="data-container">
 					<span class="data txt-stable">{{humedad}}<span class="unit">%</span></span>				
 					<h4 class="txt-a">Humedad Exterior (Lluvia)</h4>
 				</div>
-			</div>
+			</div>-->
 		</div>
 		<div class="row text-center pt-4 justify-content-center">
 			<div class="col-12">
 				<h4>Control Ventilación</h4>
 			</div>			
-			<div class="col-12">
+			<div class="col-12 col-md-11 col-lg-12 col-xl-9">
 				<button type="button" class="btn btn-auto" ng-click="autoOnOff()" ng-class="{'btnlight':auto===false, 'bg-auto':auto===true}">Control {{textAuto}}</button>
 			</div>
-			<div class="col-3">
+
+			<div class="w-100"></div>
+
+			<div class="col-12 col-sm-6 col-md-5 col-lg-5 col-xl-3">
 				<a href="#" class="btn" ng-click="blowerOnOff('A')" ng-class="{'disabled':auto===true, 'btnlight':blowerA===false, 'btn-on':blowerA===true}">Ventilador Sala <br> {{stateA}}</a>
 			</div>
-			<div class="col-3">
+			<div class="col-12 col-sm-6 col-md-5 col-lg-5 col-xl-3">
 				<a href="#" class="btn " ng-click="blowerOnOff('B')" ng-class="{'disabled':auto===true, 'btnlight':blowerB===false, 'btn-on':blowerB===true}">Ventilador Cocina <br>{{stateB}}</a>
 			</div>
+
 			<div class="w-100"></div>
-			<div class="col-3">
+
+			<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
 				<a href="#" class="btn" ng-click="windowsOnOff('A')" ng-class="{'disabled':auto===true, 'btnlight':windowA===false, 'btn-on':windowA===true}">Ventana Habitación 1 <br> {{stwA}}</a>
 			</div>
-			<div class="col-3">
+			<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
 				<a href="#" class="btn " ng-click="windowsOnOff('B')" ng-class="{'disabled':auto===true, 'btnlight':windowB===false, 'btn-on':windowB===true}">Ventana Habitación 2 <br>{{stwB}}</a>
 			</div>
-			<div class="col-3">
+			<div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-3">
 				<a href="#" class="btn " ng-click="windowsOnOff('C')" ng-class="{'disabled':auto===true, 'btnlight':windowC===false, 'btn-on':windowC===true}">VentanaSala <br>{{stwC}}</a>
 			</div>
 		</div>
@@ -51,10 +56,10 @@
 				<div class="col-12">
 					<h4>Control Tendedero</h4>
 				</div>			
-				<div class="col-3">
+				<div class="col-auto">
 					<button type="button" class="btn" ng-click="autoOnOffB()" ng-class="{'btnlight':autoB===false, 'bg-auto':autoB===true}">Control {{textAutoB}}</button>
 				</div>
-				<div class="col-3">
+				<div class="col-auto">
 					<a href="#" class="btn" ng-click="roomOnOff()" ng-class="{'disabled':autoB===true, 'btnlight':room===false, 'btn-on':room===true}">Techo corredizo: {{roomState}}</a>
 				</div>
 			</div>

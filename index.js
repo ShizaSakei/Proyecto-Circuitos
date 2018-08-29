@@ -3,8 +3,8 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var five = require("johnny-five");
-var board = new five.Boards([{id:"A", port:"COM4"},{id:"B", port:"COM5"}]);
+//var five = require("johnny-five");
+//var board = new five.Boards([{id:"A", port:"COM4"},{id:"B", port:"COM5"}]);
 //var board = new five.Board({port: "COM4"});
 app.use(express.static('assets'));
 app.get('/', function(req, res){
@@ -29,7 +29,7 @@ board.on('ready', function(){
 	});
 });*/
 
-board.on('ready', function(){
+/*board.on('ready', function(){
 //Variables Control Acceso
 	var aux = false;
 	var puertaG1 = new five.Servo({
@@ -194,7 +194,7 @@ board.on('ready', function(){
 		});
   
 	});
-});
+});*/
 
 //ejecución del Servidor
 http.listen(3000, function(){
